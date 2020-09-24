@@ -1,0 +1,30 @@
+<?php
+class Data_asset_model extends CI_Model
+{
+	function select($id)
+	{  
+		$this->db->where('id_stock_take',$id);
+		$query = $this->db->get('tbl_asset');
+		return $query;
+	}
+	
+	function select_header()
+	{ 
+		$query = $this->db->select('tbl_stock_take.id_stock_take
+    , DATE_FORMAT(tanggal, "%d/%m/%Y") AS tanggal
+    , tbl_stock_take.lokasi 
+    , tbl_stock_take.id_user
+    , GROUP_CONCAT(tbl_user.nama_lengkap SEPARATOR ",") AS USER');
+		$this->db->from('tbl_stock_take');
+		$this->db->join('user_stock_take', 'tbl_stock_take.id_stock_take = user_stock_take.id_stock_take', 'left');
+		$this->db->join('tbl_user', 'tbl_user.id_user = user_stock_take.id_user', 'left');
+		$this->db->group_by("id_stock_take"); 
+		$query = $this->db->get();
+		return $query;
+	}
+
+	function insert($data)
+	{
+		$this->db->insert_batch('tbl_asset', $data);
+	}
+}

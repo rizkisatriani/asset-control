@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ecf0f1</color>
+    <color name="colorPrimaryDark">#1e3c72</color>
+    <color name="colorAccent">@color/blue_dark</color>
+    <color name="blue_dark">#2c3e50</color>
+    <color name="light">#ecf0f1</color>
+    <color name="bg_info">#2ecc71</color>
+    <color name="bg_primary">#3498db</color>
+    <color name="bg_alert">#e74c3c</color>
+    <color name="putih">#FFF</color>
+    <color name="text_hit">#95a5a6</color>
+    <color name="bg_dark">#414345</color>
+</resources>
